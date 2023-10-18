@@ -7,21 +7,29 @@
   <title>Document</title>
   <link rel="stylesheet" href="login.css" />
 </head>
+
 <body>
   <div id="root">
-    <div>
-      <ul>ID</ul>
-      <ul>PW</ul>
-      <ul>PW</ul>
-      <ul>Email</ul>
-    </div>
     <form action="/login" method="POST">
-      <input type = "text" name = "Id">
-      <input type = "text" name = "Pw1">
-      <input type = "text" name = "pw2">
-      <input type = "text" name = "Email">
-      <input type = "submit" name ="Login">
+      <div>
+        <label for="Id" value="ID">ID</label>
+        <input type="text" name="Id">
+      </div>
+      <div>
+        <label for="Pw1" value="ID">PW</label>
+        <input type="text" name="Pw1">
+      </div>
+      <div>
+        <label for="Pw2" value="ID">PW</label>
+        <input type="text" name="pw2">
+      </div>
+      <div>
+        <label for="Email" value="ID">Email</label>
+        <input type="text" name="Email">
+      </div>
+      <input type="submit" name="Login" value="Sign up">
     </form>
   </div>
 </body>
+
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="board.css" />
+</head>
+
+<body>
+  <div id="root">
+    <div>
+      <ul>id</ul>
+      <ul>님! 반갑습니다.<br>저에게 편지를 보내주세요!</ul>
+    </div>
+    <form action="/board" method="post">
+      <div>
+        <label for="Title" value="Title"></label>
+        <input type="text" name="Title">
+      </div>
+      <div>
+        <label for="Text" value="Text"></label>
+        <input type="text" name="Text">
+      </div>
+      <input type="submit" value="send">
+    </form>
+  </div>
+</body>
+
+</html>

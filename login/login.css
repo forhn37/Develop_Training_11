@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  padding:0px;
+  box-sizing: border-box;
+}
+#root {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+/* ul tag */
+#root>div { 
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  color: #B6B6B6;
+  font-size: 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 20px;
+}
+#id, #Pw1, #Pw2, #Email {
+  background-color: #D9D9D9;
+}
+#Login {
+  background-color: #FF6666;
+  color: #FFFFFF;
+}

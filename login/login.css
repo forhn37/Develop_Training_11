@@ -7,6 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 /* ul tag */
 #root>div { 
@@ -15,17 +17,32 @@
   width: 60px;
   color: #B6B6B6;
   font-size: 24px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  height: 300px; 
+
 }
 form {
   display: flex;
   flex-direction: column;
-  width: 300px;
   border-radius: 20px;
+  align-items: center;
+  height: 300px;
 }
-#id, #Pw1, #Pw2, #Email {
+#Id, #Pw1, #Pw2, #Email {
   background-color: #D9D9D9;
+  height: 35px;
+  margin-bottom: 20px;
 }
 #Login {
   background-color: #FF6666;
   color: #FFFFFF;
+  height: 29px;
+}
+input {
+  margin-bottom: 11px;
+  width: 300px;
+  height: 35px;
+}
+ul {
+  margin-bottom: 18px;
 }

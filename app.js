@@ -2,6 +2,7 @@
 const http = require('http');
 const fs = require('fs');
 const querystring = require('querystring');
+var signUpAsset = require('./login/signUpAsset')
 
 // 서버를 선언해 가독성위해 함
 const server = http.createServer((req, res) => {
@@ -46,7 +47,10 @@ const server = http.createServer((req, res) => {
       console.log(parsedBody.password);
       console.log(parsedBody.passwordcopy);
       console.log(parsedBody.email);
-      
+      console.log(signUpAsset)
+
+      let temp = Object.assign(signUpAsset, parsedBody);
+      console.log(signUpAsset);
 // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
       res.writeHead(200, {'Content-Type': 'text/plain' })
       res.end("hello");

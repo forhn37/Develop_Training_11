@@ -49,7 +49,7 @@ const server = http.createServer((req, res) => {
       
 // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
       res.writeHead(200, {'Content-Type': 'text/plain' })
-      return res.redirect('http://localhost:8000/board');
+      res.end("hello");
     })
     
   }

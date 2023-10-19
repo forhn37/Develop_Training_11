@@ -92,33 +92,31 @@ const server = http.createServer((req, res) => {
 
   // board에 post방식으로 내용 저장
   if (req.method === 'POST' && req.url === '/board') {
-      if (err) {
-        serverErrorLog();
-      }
-      // body 선언
-      let body = '';
 
-      req.on('data', (chunk) => {
-        body += chunk.toString();
-      })
-      req.on('end', () => {
-        const parsedBody = querystring.parse(body);
-        const { id, password, passwordcopy, email } = parsedBody;
+    // body 선언
+    let body = '';
 
-        console.log(parsedBody);
-        console.log(parsedBody.id);
-        console.log(parsedBody.password);
-        console.log(parsedBody.passwordcopy)
-        console.log(parsedBody.email);
-        console.log(signUpAsset);
+    req.on('data', (chunk) => {
+      body += chunk.toString();
+    })
+    req.on('end', () => {
+      const parsedBody = querystring.parse(body);
+      const { id, password, passwordcopy, email } = parsedBody;
 
-        signUpAsset.id = parsedBody.id;
-        signUpAsset.password = parsedBody.password;
-        signUpAsset.email = parsedBody.email;
-        
-        console.log(signUpAsset);
+      console.log(parsedBody);
+      console.log(parsedBody.id);
+      console.log(parsedBody.password);
+      console.log(parsedBody.passwordcopy)
+      console.log(parsedBody.email);
+      console.log(signUpAsset);
 
-        const datalist =`
+      signUpAsset.id = parsedBody.id;
+      signUpAsset.password = parsedBody.password;
+      signUpAsset.email = parsedBody.email;
+
+      console.log(signUpAsset);
+
+      const datalist = `
         <!DOCTYPE html>
 <html lang="en">
 
@@ -150,20 +148,15 @@ const server = http.createServer((req, res) => {
   </div>
 </body>
 </html>`
+      res.writeHead(301, { 'Content-Type': 'text/html' })
+      res.end(datalist);
 
-              
-        res.writeHead(301, { 'Content-Type': 'text/html' })
-        res.end(datalist)
-      
     })
 
   }
+
 
   if (req.method === 'POST' && req.url === '/board') {
-    fs.readFile('board/board2.html', 'utf-8', (err, data) => {
-      if (err) {
-        serverErrorLog();
-      }
       // body 선언
       let body = '';
 
@@ -172,74 +165,27 @@ const server = http.createServer((req, res) => {
       })
       req.on('end', () => {
         const parsedBody = querystring.parse(body);
-        const { id, password, passwordcopy, email } = parsedBody;
+        const { title, text } = parsedBody;
 
         console.log(parsedBody);
-        console.log(parsedBody.id);
-        console.log(parsedBody.password);
-        console.log(parsedBody.passwordcopy)
-        console.log(parsedBody.email);
-        console.log(signUpAsset);
+        console.log(parsedBody.title);
+        console.log(parsedBody.text);
 
-        signUpAsset.id = parsedBody.id;
-        signUpAsset.password = parsedBody.password;
-        signUpAsset.email = parsedBody.email;
-        
-        console.log(signUpAsset);
-
-        const datalist =`
-        <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="http://localhost:8000/board/css"/>
-  <!-- <script src = "./titletext.js" defer></script> -->
-</head>
-
-<body>
-  <div id="root">
-    <div id ="header">
-      
-      <ul><span id = "idvalue">${signUpAsset.id}</span>님! 반갑습니다.<br>저에게 편지를 보내주세요!</ul>
-    </div>
-    <form action="/board" method="post">
-      <div>
-        <label for="title">Title</label>
-        <input type="text" name="title">
-      </div>
-      <div>
-        <label for="text">Text</label>
-        <input type="text" name="text" id="Text">
-      </div>
-      <input type="submit" name="send" id ="send">
-    </form>
-  </div>
-</body>
-  <script>
-    let idvalue = document.getElementById('idvalue')
-    idvalue.textContent = signUp
-  </script>
-</html>`
-
-              
         res.writeHead(301, { 'Content-Type': 'text/html' })
-        res.end(datalist)
+        res.end()
       });
-    })
+    }
 
-  }
+
   if (req.url === '/board/css') {
-    fs.readFile('board/board.css', 'utf8', (err, data) => {
-      if (err) {
-        serverErrorLog();
-      }
-      res.writeHead(200, { 'Content-Type': 'text/css' });
-      res.end(data);
-    });
-  };
+  fs.readFile('board/board.css', 'utf8', (err, data) => {
+    if (err) {
+      serverErrorLog();
+    }
+    res.writeHead(200, { 'Content-Type': 'text/css' });
+    res.end(data);
+  });
+};
 })
 server.listen(8000, () => {
   console.log('http://localhost:8000/login')

@@ -50,7 +50,7 @@ const server = http.createServer((req, res) => {
       console.log(signUpAsset)
 
       let temp = Object.assign(signUpAsset, parsedBody);
-      console.log(signUpAsset);
+      console.log(temp);
 // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
       res.writeHead(200, {'Content-Type': 'text/plain' })
       res.end("hello");

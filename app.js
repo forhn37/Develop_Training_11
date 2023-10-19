@@ -56,12 +56,12 @@ const server = http.createServer((req, res) => {
       const parsedBody = querystring.parse(body);
       const { id, password, passwordcopy, email } = parsedBody;
 
-      // console.log(parsedBody);
-      // console.log(parsedBody.id);
-      // console.log(parsedBody.password);
-      // console.log(parsedBody.passwordcopy)
-      // console.log(parsedBody.email);
-      // console.log(signUpAsset)
+      console.log(parsedBody);
+      console.log(parsedBody.id);
+      console.log(parsedBody.password);
+      console.log(parsedBody.passwordcopy)
+      console.log(parsedBody.email);
+      console.log(signUpAsset)
 
       signUpAsset.id = parsedBody.id;
       signUpAsset.password = parsedBody.password;
@@ -73,7 +73,7 @@ const server = http.createServer((req, res) => {
 
       // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
       res.writeHead(200, { 'Content-Type': 'application/json' })
-      res.end(signUpAsset);
+      res.send(signUpAsset);
     })
 
   }
@@ -105,14 +105,14 @@ const server = http.createServer((req, res) => {
         const parsedBody = querystring.parse(body);
         const { title, text } = parsedBody;
 
-        console.log(parsedBody);
-        console.log(parsedBody.title);
-        console.log(parsedBody.text);
+        // console.log(parsedBody);
+        // console.log(parsedBody.title);
+        // console.log(parsedBody.text);
 
-        titletext.title = parsedBody.title;
-        titletext.text = parsedBody.text;
+        // titletext.title = parsedBody.title;
+        // titletext.text = parsedBody.text;
 
-        console.log(titletext);
+        // console.log(titletext);
       // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
         //       
         res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -132,5 +132,5 @@ const server = http.createServer((req, res) => {
   };
 })
 server.listen(8000, () => {
-  console.log('서버 정상실행되었습니다')
+  console.log('http://localhost:8000/login')
 })  

@@ -48,8 +48,7 @@ const server = http.createServer((req, res) => {
       console.log(parsedBody.Email);
 // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
       res.writeHead(200, {'Content-Type': 'text/plain' })
-      const board = http://localhost:8000/board
-      res.end(board)
+      res.redirect(302,'/board') 
     })
     
   }

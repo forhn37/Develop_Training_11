@@ -1,6 +1,7 @@
 // 모듈선언
 const http = require('http');
 const fs = require('fs');
+const querystring = require('querystring');
 
 // 서버를 선언해 가독성위해 함
 const server = http.createServer((req, res) => {
@@ -28,7 +29,20 @@ const server = http.createServer((req, res) => {
       res.end(data);
     });
   };
+// login페이지에서 폼에서 만들어질 data를 담을 수단
+  if(req.method === 'POST' && req.url === '/login') {
+// body 선언
+    let body = '';
 
+    req.on('data', (chunk) => {
+      body+= chunk.toString(); 
+    })
+    req.on('end', () => {
+      const parsedBody = querystring.parse(body);
+      console.log(parsedBody)
+    })
+    
+  }
   if (req.url === '/board') {
     fs.readFile('board/board.html', 'utf8', (err, data) => {
       if (err) {

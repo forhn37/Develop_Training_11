@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 const querystring = require('querystring');
 var signUpAsset = require('./login/signUpAsset');
-var titletext = require('./board/titletext')
+var titletext = require('./board/titletext');
 
 
 // 서버를 선언해 가독성위해 함
@@ -36,7 +36,7 @@ const server = http.createServer((req, res) => {
   };
   
 // login페이지에서 폼에서 만들어질 data를 담을 수단
-  if(req.method === 'POST' && req.url === '/login') {
+  if(req.method === 'POST' && req.url === '/board') {
 // body 선언
     let body = '';
 
@@ -64,10 +64,20 @@ const server = http.createServer((req, res) => {
       
 // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
       res.writeHead(200, {'Content-Type': 'text/plain' })
-      res.end("hello");
+      res.readFile('http://localhost:8000/board');
     })
     
   }
+
+  if (req.url === '/login/signupasset') {
+    fs.readFile('login/signUpAsset.js', 'utf8', (err, data) => {
+      if (err) {
+        serverErrorLog();
+      }
+      res.writeHead(200, { 'Content-Type': 'text/javascript' });
+      res.end(data);
+    });
+  };
   // board최초입장 get 호스팅
   if (req.url === '/board') {
     fs.readFile('board/board.html', 'utf8', (err, data) => {

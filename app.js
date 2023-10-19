@@ -2,7 +2,9 @@
 const http = require('http');
 const fs = require('fs');
 const querystring = require('querystring');
-var signUpAsset = require('./login/signUpAsset')
+var signUpAsset = require('./login/signUpAsset');
+var titletext = require('./board/titletext')
+
 
 // 서버를 선언해 가독성위해 함
 const server = http.createServer((req, res) => {
@@ -72,6 +74,36 @@ const server = http.createServer((req, res) => {
       res.end(data);
     });
   };
+  if(req.method === 'POST' && req.url === '/board') {
+    // body 선언
+        let body = '';
+    
+        req.on('data', (chunk) => {
+          body+= chunk.toString(); 
+        })
+        req.on('end', () => {
+          const parsedBody = querystring.parse(body);
+          const {title, text} = parsedBody;
+    
+          console.log(parsedBody);
+          console.log(parsedBody.title);
+          console.log(parsedBody.text);
+
+          titletext.title = parsedBody.title;
+          titletext.text = parsedBody.text;
+
+          console.log(titletext);
+
+
+
+          
+          
+    // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
+          res.writeHead(200, {'Content-Type': 'text/plain' })
+          res.end("hello");
+        })
+        
+      }
   if (req.url === '/board/css') {
     fs.readFile('board/board.css', 'utf8', (err, data) => {
       if (err) {

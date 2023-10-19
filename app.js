@@ -4,6 +4,7 @@ const fs = require('fs');
 const querystring = require('querystring');
 const signUpAsset = require('./login/signUpAsset');
 const titletext = require('./board/titletext');
+const { dirname } = require('path');
 
 
 // 서버를 선언해 가독성위해 함
@@ -91,7 +92,7 @@ const server = http.createServer((req, res) => {
 
   // board에 post방식으로 내용 저장
   if (req.method === 'POST' && req.url === '/board') {
-    fs.readfile('board/board.html', 'utf-8', (err, data) => {
+    fs.readFile('board/board2.html', 'utf-8', (err, data) => {
       if (err) {
         serverErrorLog();
       }
@@ -110,16 +111,54 @@ const server = http.createServer((req, res) => {
         console.log(parsedBody.password);
         console.log(parsedBody.passwordcopy)
         console.log(parsedBody.email);
-        console.log(signUpAsset)
+        console.log(signUpAsset);
 
         signUpAsset.id = parsedBody.id;
         signUpAsset.password = parsedBody.password;
         signUpAsset.email = parsedBody.email;
-
+        
         console.log(signUpAsset);
-        //       
-        res.writeHead(200, {'Content-Type': 'application/json'})
-        res.end("hello")
+
+        const datalist =`
+        <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="http://localhost:8000/board/css"/>
+  <!-- <script src = "./titletext.js" defer></script> -->
+</head>
+
+<body>
+  <div id="root">
+    <div id ="header">
+      
+      <ul><span id = "idvalue">${signUpAsset.id}</span>님! 반갑습니다.<br>저에게 편지를 보내주세요!</ul>
+    </div>
+    <form action="/board" method="post">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" name="title">
+      </div>
+      <div>
+        <label for="text">Text</label>
+        <input type="text" name="text" id="Text">
+      </div>
+      <input type="submit" name="send" id ="send">
+    </form>
+  </div>
+</body>
+  <script>
+    let idvalue = document.getElementById('idvalue')
+    idvalue.textContent = signUp
+  </script>
+</html>`
+
+              
+        res.writeHead(301, { 'Content-Type': 'text/html' })
+        res.end(datalist)
       });
     })
 

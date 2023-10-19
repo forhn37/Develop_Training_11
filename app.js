@@ -19,7 +19,35 @@ const server = http.createServer((req, res) => {
       res.end(data);
     });
   };
+  if (req.url === '/login/css') {
+    fs.readFile('login/login.css', 'utf8', (err, data) => {
+      if (err) {
+        serverErrorLog();
+      }
+      res.writeHead(200, { 'Content-Type': 'text/css' });
+      res.end(data);
+    });
+  };
+
+  if (req.url === '/board') {
+    fs.readFile('board/board.html', 'utf8', (err, data) => {
+      if (err) {
+        serverErrorLog();
+      }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(data);
+    });
+  };
+  if (req.url === '/board/css') {
+    fs.readFile('board/board.css', 'utf8', (err, data) => {
+      if (err) {
+        serverErrorLog();
+      }
+      res.writeHead(200, { 'Content-Type': 'text/css' });
+      res.end(data);
+    });
+  };
 })
-server.listen(5050, () => {
+server.listen(8000, () => {
   console.log('서버 정상실행되었습니다')
 })  

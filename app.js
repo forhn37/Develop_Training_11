@@ -45,12 +45,13 @@ const server = http.createServer((req, res) => {
       console.log(parsedBody);
       console.log(parsedBody.id);
       console.log(parsedBody.password);
-      console.log(parsedBody.passwordcopy);
+      console.log(parsedBody.passwordcopy)
       console.log(parsedBody.email);
       console.log(signUpAsset)
 
-      let temp = Object.assign(signUpAsset, parsedBody);
-      console.log(temp);
+      // let temp = Object.assign(signUpAsset, parsedBody);
+      // console.log(temp);
+      
 // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
       res.writeHead(200, {'Content-Type': 'text/plain' })
       res.end("hello");

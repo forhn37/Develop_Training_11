@@ -45,38 +45,38 @@ const server = http.createServer((req, res) => {
     });
   };
   // login페이지에서 폼에서 만들어질 data를 담을 수단
-  if (req.method === 'POST' && req.url === '/login') {
-    // body 선언
-    let body = '';
+  // if (req.method === 'POST' && req.url === '/login') {
 
-    req.on('data', (chunk) => {
-      body += chunk.toString();
-    })
-    req.on('end', () => {
-      const parsedBody = querystring.parse(body);
-      const { id, password, passwordcopy, email } = parsedBody;
+  //   let body = '';
 
-      console.log(parsedBody);
-      console.log(parsedBody.id);
-      console.log(parsedBody.password);
-      console.log(parsedBody.passwordcopy)
-      console.log(parsedBody.email);
-      console.log(signUpAsset)
+  //   req.on('data', (chunk) => {
+  //     body += chunk.toString();
+  //   })
+  //   req.on('end', () => {
+  //     const parsedBody = querystring.parse(body);
+  //     const { id, password, passwordcopy, email } = parsedBody;
 
-      signUpAsset.id = parsedBody.id;
-      signUpAsset.password = parsedBody.password;
-      signUpAsset.email = parsedBody.email;
+  //     console.log(parsedBody);
+  //     console.log(parsedBody.id);
+  //     console.log(parsedBody.password);
+  //     console.log(parsedBody.passwordcopy)
+  //     console.log(parsedBody.email);
+  //     console.log(signUpAsset)
 
-      console.log(signUpAsset);
-      // let temp = Object.assign(signUpAsset, parsedBody);
-      // console.log(temp);
+  //     signUpAsset.id = parsedBody.id;
+  //     signUpAsset.password = parsedBody.password;
+  //     signUpAsset.email = parsedBody.email;
 
-      // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
-      res.writeHead(200, { 'Content-Type': 'application/json' })
-      res.send(signUpAsset);
-    })
+  //     console.log(signUpAsset);
+  // let temp = Object.assign(signUpAsset, parsedBody);
+  // console.log(temp);
 
-  }
+  // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
+  //     res.writeHead(200, { 'Content-Type': 'text/javascript' })
+  //     res.end(signUpAsset);
+  //   })
+
+  // }
 
   // board최초입장 get 호스팅
   // if (req.url === '/board') {
@@ -91,7 +91,7 @@ const server = http.createServer((req, res) => {
 
   // board에 post방식으로 내용 저장
   if (req.method === 'POST' && req.url === '/board') {
-    fs.readFile('board/board.html', 'utf8', (err, data) => {
+    fs.readfile('board/board.html', 'utf8', (err, data) => {
       if (err) {
         serverErrorLog();
       }
@@ -103,20 +103,23 @@ const server = http.createServer((req, res) => {
       })
       req.on('end', () => {
         const parsedBody = querystring.parse(body);
-        const { title, text } = parsedBody;
+        const { id, password, passwordcopy, email } = parsedBody;
 
-        // console.log(parsedBody);
-        // console.log(parsedBody.title);
-        // console.log(parsedBody.text);
+        console.log(parsedBody);
+        console.log(parsedBody.id);
+        console.log(parsedBody.password);
+        console.log(parsedBody.passwordcopy)
+        console.log(parsedBody.email);
+        console.log(signUpAsset)
 
-        // titletext.title = parsedBody.title;
-        // titletext.text = parsedBody.text;
+        signUpAsset.id = parsedBody.id;
+        signUpAsset.password = parsedBody.password;
+        signUpAsset.email = parsedBody.email;
 
-        // console.log(titletext);
-      // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
+        console.log(signUpAsset);
         //       
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(data);
+        res.writeHead(301, {'Location':'/board'})
+        res.end()
       });
     })
 

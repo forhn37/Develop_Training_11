@@ -39,7 +39,17 @@ const server = http.createServer((req, res) => {
     })
     req.on('end', () => {
       const parsedBody = querystring.parse(body);
-      console.log(parsedBody)
+      const {Id, Pw1, Pw2, Email} = parsedBody;
+
+      console.log(parsedBody);
+      console.log(parsedBody.Id);
+      console.log(parsedBody.Pw1);
+      console.log(parsedBody.Pw2);
+      console.log(parsedBody.Email);
+// ? 테스트해야할 수단 'Content-Type': 'text/plain'//
+      res.writeHead(200, {'Content-Type': 'text/plain' })
+      const board = http://localhost:8000/board
+      res.end(board)
     })
     
   }

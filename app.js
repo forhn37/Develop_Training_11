@@ -39,16 +39,17 @@ const server = http.createServer((req, res) => {
     })
     req.on('end', () => {
       const parsedBody = querystring.parse(body);
-      const {Id, Pw1, Pw2, Email} = parsedBody;
+      const {id, password, passwordcopy, email} = parsedBody;
 
       console.log(parsedBody);
-      console.log(parsedBody.Id);
-      console.log(parsedBody.Pw1);
-      console.log(parsedBody.Pw2);
-      console.log(parsedBody.Email);
+      console.log(parsedBody.id);
+      console.log(parsedBody.password);
+      console.log(parsedBody.passwordcopy);
+      console.log(parsedBody.email);
+      
 // ? 테스트해야할 수단 'Content-Type': 'text/plain'//
       res.writeHead(200, {'Content-Type': 'text/plain' })
-      res.redirect(301, 'http://localhost:8000/board')
+      res.redirect("/board")
     })
     
   }

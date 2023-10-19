@@ -91,7 +91,7 @@ const server = http.createServer((req, res) => {
 
   // board에 post방식으로 내용 저장
   if (req.method === 'POST' && req.url === '/board') {
-    fs.readfile('board/board.html', 'utf8', (err, data) => {
+    fs.readfile('board/board.html', 'utf-8', (err, data) => {
       if (err) {
         serverErrorLog();
       }
@@ -118,8 +118,8 @@ const server = http.createServer((req, res) => {
 
         console.log(signUpAsset);
         //       
-        res.writeHead(301, {'Location':'/board'})
-        res.end()
+        res.writeHead(200, {'Content-Type': 'application/json'})
+        res.end("hello")
       });
     })
 

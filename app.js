@@ -125,7 +125,7 @@ const server = http.createServer((req, res) => {
       console.log(titletext.title);
       console.log(titletext.text);
 
-      res.writeHead(301, { 'Content-Type': 'text/javascript' })
+      res.writeHead(301, { 'Content-Type': 'text/html' })
       res.end()
     });
   }

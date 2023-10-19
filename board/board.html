@@ -13,7 +13,7 @@
   <div id="root">
     <div id ="header">
       
-      <ul><span id = "idvalue">ID</span>님! 반갑습니다.<br>저에게 편지를 보내주세요!</ul>
+      <ul><span id = "idvalue"></span>님! 반갑습니다.<br>저에게 편지를 보내주세요!</ul>
     </div>
     <form action="/board" method="post">
       <div>
@@ -28,5 +28,8 @@
     </form>
   </div>
 </body>
-
+  <script>
+    let idvalue = document.getElementById('idvalue')
+    idvalue.textContent = signUp
+  </script>
 </html>

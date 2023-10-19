@@ -10,8 +10,8 @@ const server = http.createServer((req, res) => {
     return res.end('서버에 문제가 생겼습니다.')
   }
 
-  if (req.url === '/Login') {
-    fs.readFile('./board/board.html', 'utf8', (err, data) => {
+  if (req.url === '/login') {
+    fs.readFile('login/login.html', 'utf8', (err, data) => {
       if (err) {
         serverErrorLog();
       }

@@ -49,6 +49,11 @@ const server = http.createServer((req, res) => {
       console.log(parsedBody.email);
       console.log(signUpAsset)
 
+      signUpAsset.id = parsedBody.id ;
+      signUpAsset.password =parsedBody.password;
+      signUpAsset.email = parsedBody.email;
+
+      console.log(signUpAsset);
       // let temp = Object.assign(signUpAsset, parsedBody);
       // console.log(temp);
       

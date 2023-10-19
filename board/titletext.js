@@ -1,16 +1,8 @@
-const signUpAsset = require("../login/signUpAsset");
-
-let idvalue = document.getElementById('idvalue')
-
-const titletext  = {
+let titletext  = {
   title: "",
   text: "",
   }
   
   
-  
-  idvalue.textContent = signUpAsset.id;
-  
-
-
+console.log(titletext)
   module.exports = titletext;

@@ -74,6 +74,16 @@ const server = http.createServer((req, res) => {
       res.end(data);
     });
   };
+
+  if (req.url === '/board/titletext') {
+    fs.readFile('board/titletext.js', 'utf8', (err, data) => {
+      if (err) {
+        serverErrorLog();wkqk
+      }
+      res.writeHead(200, { 'Content-Type': 'text/javascript' });
+      res.end(data);
+    });
+  };
   if(req.method === 'POST' && req.url === '/board') {
     // body 선언
         let body = '';
@@ -82,9 +92,19 @@ const server = http.createServer((req, res) => {
           body+= chunk.toString(); 
         })
         req.on('end', () => {
+          
+          fs.readFile('board/board.html', 'utf8', (err, data) => {
+            if (err) {
+              serverErrorLog();
+            }
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(data);
+          });
+
+
           const parsedBody = querystring.parse(body);
           const {title, text} = parsedBody;
-    
+        
           console.log(parsedBody);
           console.log(parsedBody.title);
           console.log(parsedBody.text);

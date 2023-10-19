@@ -34,7 +34,7 @@ const server = http.createServer((req, res) => {
       res.end(data);
     });
   };
-  
+
 // login페이지에서 폼에서 만들어질 data를 담을 수단
   if(req.method === 'POST' && req.url === '/board') {
 // body 선언

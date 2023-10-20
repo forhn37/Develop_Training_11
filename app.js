@@ -4,6 +4,9 @@ const fs = require('fs');
 const querystring = require('querystring');
 const signUpAsset = require('./login/signUpAsset');
 const titletext = require('./board/titletext');
+const indexlist = require('./login/indexof')
+const alpabetlist = require('./login/alpabet')
+const checkpassword = require('./login/same')
 
 
 // 서버를 선언해 가독성위해 함
@@ -66,11 +69,13 @@ const server = http.createServer((req, res) => {
 
       signUpAsset.id = parsedBody.id;
       signUpAsset.password = parsedBody.password;
+      signUpAsset.passwordcopy = parsedBody.passwordcopy;
       signUpAsset.email = parsedBody.email;
 
       let datayo = `const signUpAsset  = {
         id: "${signUpAsset.id}",
         password: "${signUpAsset.password}",
+        passwordcopdy: "${signUpAsset.passwordcopy}",
         email: "${signUpAsset.email}",
         inputBoxColor: "#D9D9D9",
         textColor: "#B6B6B6",
@@ -157,8 +162,8 @@ const server = http.createServer((req, res) => {
         }
       })
 
-      res.writeHead(301, { 'Content-Type': 'text/html' })
-      res.end()
+      res.writeHead(301, { 'Content-Type': 'text/plain' })
+      res.end("hi")
     });
   }
 

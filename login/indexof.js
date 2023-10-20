@@ -2,13 +2,15 @@
 // let input3index = input3.indexOf("@");
 
 
-let indexof = function (input3) {
-  if (input3.indexOf("@") > 0 && input3.indexof(".") > 0) {
-    if (input3.indexof("@") < input3.indexof(".")) {
+const indexcheck = function (input3) {
+  if (input3.indexOf("@") > 0 && input3.indexOf(".") > 0) {
+    if (input3.indexOf("@") < input3.indexOf(".")) {
       console.log("true");
     } else {
       console.log("false")
     }
+  } else {
+    console.log("false")
   }
 }
-indexof("asdfasdfasdf.");
+module.exports = indexcheck;

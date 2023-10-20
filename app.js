@@ -106,7 +106,7 @@ const server = http.createServer((req, res) => {
       
       <ul><span id = "idvalue">${signUpAsset.id}</span>님! 반갑습니다.<br>저에게 편지를 보내주세요!</ul>
     </div>
-    <form action="/board" method="post">
+    <form action="/storage" method="post">
       <div>
         <label for="title">Title</label>
         <input type="text" name="title">
@@ -125,7 +125,7 @@ const server = http.createServer((req, res) => {
     })
   }
 
-  if (req.method === 'POST' && req.url === '/board') {
+  if (req.method === 'POST' && req.url === '/storage') {
     // body 선언
     let body = '';
 

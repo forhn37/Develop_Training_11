@@ -1,6 +1,6 @@
 const titletext  = {
-        title: "ㄴㄹㅇㄴ",
-        text: "ㄴㄹㅇㄹㄴㅇ",
+        title: "sdf",
+        text: "sdsfdfd",
         }
         
         

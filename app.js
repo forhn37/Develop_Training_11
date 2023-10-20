@@ -143,6 +143,20 @@ const server = http.createServer((req, res) => {
       console.log(titletext.title);
       console.log(titletext.text);
 
+      let dataya = `const titletext  = {
+        title: "",
+        text: "",
+        }
+        
+        
+      console.log(titletext)
+      module.exports = titletext;`
+      fs.writeFile("board/titletext.js", dataya, (err) => {
+        if(err) {
+          console.log("err")
+        }
+      })
+
       res.writeHead(301, { 'Content-Type': 'text/html' })
       res.end()
     });

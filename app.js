@@ -6,7 +6,8 @@ const signUpAsset = require('./login/signUpAsset');
 const titletext = require('./board/titletext');
 const indexlist = require('./login/indexof')
 const alpabetlist = require('./login/alpabet')
-const checkpassword = require('./login/same')
+const checkpassword = require('./login/same');
+const { isUtf8 } = require('buffer');
 
 
 // 서버를 선언해 가독성위해 함
@@ -76,7 +77,7 @@ const server = http.createServer((req, res) => {
       let datayo = `const signUpAsset  = {
         id: "${signUpAsset.id}",
         password: "${signUpAsset.password}",
-        passwordcopdy: "${signUpAsset.passwordcopy}",
+        passwordcopy: "${signUpAsset.passwordcopy}",
         email: "${signUpAsset.email}",
         inputBoxColor: "#D9D9D9",
         textColor: "#B6B6B6",
@@ -86,14 +87,14 @@ const server = http.createServer((req, res) => {
         
         module.exports = signUpAsset;`
       fs.writeFile("login/signUpAsset.js", datayo, (err) => {
-        if(err) {
+        if (err) {
           console.log("err")
         }
       })
-    
+
 
       console.log(signUpAsset);
-// 정적페이지 작성
+      // 정적페이지 작성
       const datalist = `
         <!DOCTYPE html>
 <html lang="en">
@@ -127,14 +128,13 @@ const server = http.createServer((req, res) => {
 </body>
 </html>`
       res.writeHead(301, { 'Content-Type': 'text/html' })
-      if( alpabetlist(signUpAsset.email) === true &&
-      checkpassword(signUpAsset.password, signUpAsset.passwordcopdy) === true && 
-      indexlist(signUpAsset.email) === true
-      ) 
-      res.end(datalist);
+      if (alpabetlist(signUpAsset.id) === true &&
+        checkpassword(signUpAsset.password, signUpAsset.passwordcopy) === true &&
+        indexlist(signUpAsset.email) === true
+      ) res.end(datalist)
     })
   }
-//  모듈 적용 후 테스트 시작 
+  //  모듈 적용 후 테스트 시작 
   if (req.method === 'POST' && req.url === '/storage') {
     // body 선언
     let body = '';
@@ -162,7 +162,7 @@ const server = http.createServer((req, res) => {
       console.log(titletext)
       module.exports = titletext;`
       fs.writeFile("board/titletext.js", dataya, (err) => {
-        if(err) {
+        if (err) {
           console.log("err")
         }
       })

@@ -1,6 +1,6 @@
 const titletext  = {
-        title: "asd",
-        text: "sfsdf",
+        title: "dsasdf",
+        text: "asdfasdf",
         }
         
         

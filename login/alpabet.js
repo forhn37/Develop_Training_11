@@ -1,12 +1,11 @@
-let reget = /^[a-zA-Z]*$/
+const reget = /^[a-zA-Z]*$/
 
-let alpabet = function (name) {
+const alpabet = function (name) {
 if(!reget.test(name)) {
-  return false
+  console.log(false);
 } else {
-  return true
+  console.log(true);
 }
 }
-alpabet("sdfasdf");
 
-// module.exports = alpabet;
+module.exports = alpabet;

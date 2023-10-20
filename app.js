@@ -60,17 +60,18 @@ const server = http.createServer((req, res) => {
       const parsedBody = querystring.parse(body);
       const { id, password, passwordcopy, email } = parsedBody;
 
-      console.log(parsedBody);
-      console.log(parsedBody.id);
-      console.log(parsedBody.password);
-      console.log(parsedBody.passwordcopy)
-      console.log(parsedBody.email);
-      console.log(signUpAsset);
+      // console.log(parsedBody);
+      // console.log(parsedBody.id);
+      // console.log(parsedBody.password);
+      // console.log(parsedBody.passwordcopy)
+      // console.log(parsedBody.email);
+      // console.log(signUpAsset);
 
       signUpAsset.id = parsedBody.id;
       signUpAsset.password = parsedBody.password;
       signUpAsset.passwordcopy = parsedBody.passwordcopy;
       signUpAsset.email = parsedBody.email;
+
 
       let datayo = `const signUpAsset  = {
         id: "${signUpAsset.id}",
@@ -126,6 +127,10 @@ const server = http.createServer((req, res) => {
 </body>
 </html>`
       res.writeHead(301, { 'Content-Type': 'text/html' })
+      if( alpabetlist(signUpAsset.email) === true &&
+      checkpassword(signUpAsset.password, signUpAsset.passwordcopdy) === true && 
+      indexlist(signUpAsset.email) === true
+      ) 
       res.end(datalist);
     })
   }

@@ -5,12 +5,12 @@
 const indexcheck = function (input3) {
   if (input3.indexOf("@") > 0 && input3.indexOf(".") > 0) {
     if (input3.indexOf("@") < input3.indexOf(".")) {
-      console.log(true);
+      return true;
     } else {
-      console.log(false)
+      return false;
     }
   } else {
-    console.log(false)
+    return false;
   }
 }
 module.exports = indexcheck;

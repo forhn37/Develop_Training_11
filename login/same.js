@@ -3,9 +3,9 @@ let pwcopy = "1234"
 
 let checkpassword = function(pw, pwcopy) {
 if(pw === pwcopy) {
-  console.log("true")
+  return true;
 } else {
-  console.log("false")
+  return false;
 }
 }
 

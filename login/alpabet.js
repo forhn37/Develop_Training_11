@@ -2,9 +2,9 @@ const reget = /^[a-zA-Z]*$/
 
 const alpabet = function (name) {
 if(!reget.test(name)) {
-  console.log(false);
+  return false;
 } else {
-  console.log(true);
+  return true;
 }
 }
 

@@ -68,10 +68,20 @@ const server = http.createServer((req, res) => {
       signUpAsset.password = parsedBody.password;
       signUpAsset.email = parsedBody.email;
 
-      let datayo = signUpAsset;
+      let datayo = `const signUpAsset  = {
+        id: "${signUpAsset.id}",
+        password: "${signUpAsset.password}",
+        email: "${signUpAsset.email}",
+        inputBoxColor: "#D9D9D9",
+        textColor: "#B6B6B6",
+        pointColor: "#FF6666"
+        }
+        
+        
+        module.exports = signUpAsset;`
       fs.writeFile("login/signUpAsset.js", datayo, (err) => {
         if(err) {
-          console.log(err)
+          console.log("err")
         }
       })
     

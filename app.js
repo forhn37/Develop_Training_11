@@ -68,6 +68,14 @@ const server = http.createServer((req, res) => {
       signUpAsset.password = parsedBody.password;
       signUpAsset.email = parsedBody.email;
 
+      let datayo = signUpAsset;
+      fs.writeFile("login/signUpAsset.js", datayo, (err) => {
+        if(err) {
+          console.log(err)
+        }
+      })
+    
+
       console.log(signUpAsset);
 // 정적페이지 작성
       const datalist = `

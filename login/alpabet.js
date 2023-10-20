@@ -1,5 +1,3 @@
-let inputs = document.querySelector('input');
-
 let reget = /^[a-zA-Z]*$/
 
 let alpabet = function (name) {
@@ -9,4 +7,6 @@ if(!reget.test(name)) {
   return true
 }
 }
-module.exports = alpabet;
+alpabet("sdfasdf");
+
+// module.exports = alpabet;

@@ -144,8 +144,8 @@ const server = http.createServer((req, res) => {
       console.log(titletext.text);
 
       let dataya = `const titletext  = {
-        title: "",
-        text: "",
+        title: "${titletext.title}",
+        text: "${titletext.text}",
         }
         
         

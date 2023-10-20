@@ -134,7 +134,7 @@ const server = http.createServer((req, res) => {
       res.end(datalist);
     })
   }
-
+//  모듈 적용 후 테스트 시작 
   if (req.method === 'POST' && req.url === '/storage') {
     // body 선언
     let body = '';

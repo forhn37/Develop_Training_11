@@ -3,6 +3,5 @@ const titletext  = {
         text: "asdfasdf",
         }
         
-        
-      console.log(titletext)
+      
       module.exports = titletext;

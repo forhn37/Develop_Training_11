@@ -1,5 +1,5 @@
 const signUpAsset  = {
-        id: "asdf",
+        id: "sdf",
         password: "1234",
         passwordcopy: "1234",
         email: "qjqmfgus@naver.com",

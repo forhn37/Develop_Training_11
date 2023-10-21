@@ -1,7 +1,6 @@
 const titletext  = {
-        title: "dsasdf",
+        title: "sadfasf",
         text: "asdfasdf",
         }
-        
-      
+      console.log(titletext)
       module.exports = titletext;

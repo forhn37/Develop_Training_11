@@ -95,8 +95,8 @@ const server = http.createServer((req, res) => {
 
       console.log(signUpAsset);
       // 정적페이지 작성
-      const datalist = `
-        <!DOCTYPE html>
+      const datalist =
+        `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -157,8 +157,6 @@ const server = http.createServer((req, res) => {
         title: "${titletext.title}",
         text: "${titletext.text}",
         }
-        
-        
       console.log(titletext)
       module.exports = titletext;`
       fs.writeFile("board/titletext.js", dataya, (err) => {
@@ -166,9 +164,12 @@ const server = http.createServer((req, res) => {
           console.log("err")
         }
       })
-
+      // 제출버튼이 클릭이 안먹는 조건 만듬
+      // ? 문제는 비활성화는 아니라는 것 연구해야함
       res.writeHead(301, { 'Content-Type': 'text/plain' })
+      if(titletext.title !== "" && titletext.text !== "") {
       res.end("hi")
+      }
     });
   }
 

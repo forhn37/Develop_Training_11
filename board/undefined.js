@@ -1,7 +1,5 @@
-const titletext = require("./titletext")
+const textlist = require('./titletext')
 
-let titletextvalue = function() {
-  
-if(titletext.title !== "undefined" && titletext.text !== "undefined") {
-}
-}
+const allvaluenotempty = Object.values(textlist).every(val => val !== "" );
+
+allvaluenotempty

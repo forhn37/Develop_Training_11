@@ -169,6 +169,7 @@ const server = http.createServer((req, res) => {
       // ? 문제는 비활성화는 아니라는 것 연구해야함
       res.writeHead(301, { 'Content-Type': 'text/plain' })
       if(titletext.title !== "" && titletext.text !== "") {
+        parsedBody.send
       res.end("hi")
       }
     });

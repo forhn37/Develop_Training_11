@@ -144,6 +144,7 @@ const server = http.createServer((req, res) => {
     })
     req.on('end', () => {
       const parsedBody = querystring.parse(body);
+      console.log(parsedBody);
       const { title, text } = parsedBody;
 
       titletext.title = parsedBody.title;

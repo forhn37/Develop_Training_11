@@ -1,8 +1,8 @@
 const signUpAsset  = {
-        id: "ㅁㄴㅇㄻㄴㅇㄹ",
-        password: "ㅁㄴㅇㄹ",
-        passwordcopy: "ㅁㄴㅇㄹ",
-        email: "ㅁㄴㅇㄹ",
+        id: "qjqfmgus",
+        password: "1",
+        passwordcopy: "1",
+        email: "qjqmfgus@naver.com",
         inputBoxColor: "#D9D9D9",
         textColor: "#B6B6B6",
         pointColor: "#FF6666"

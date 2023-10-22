@@ -1,6 +1,6 @@
 const titletext  = {
-        title: "12341234",
-        text: "234234",
+        title: "hi",
+        text: "hello",
         }
       console.log(titletext)
       module.exports = titletext;
